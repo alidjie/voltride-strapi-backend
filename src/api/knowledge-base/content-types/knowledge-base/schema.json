@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "knowledge_base",
+  "info": {
+    "singularName": "knowledge-base-article",
+    "pluralName": "knowledge-base-articles",
+    "displayName": "Knowledge Base",
+    "description": "Product knowledge articles for Lvjia AI customer service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "question": {
+      "type": "text",
+      "required": true
+    },
+    "answer": {
+      "type": "richtext",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["product-specs", "pricing", "ordering", "shipping", "certification", "after-sales", "company-info", "technical"],
+      "required": true
+    },
+    "keywords": {
+      "type": "json",
+      "description": "Keywords for AI matching"
+    },
+    "relatedProduct": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product"
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
